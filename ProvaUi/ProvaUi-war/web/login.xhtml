@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:o="http://omnifaces.org/ui">
+    <!--head>
+        <title>Login</title>
+    </head-->
+    <body>
+
+        <h:form id="login_form">
+            <f:metadata>
+                <o:enableRestorableView/>
+            </f:metadata>
+
+            <p:panelGrid columns="2" style="width:400px;margin-top:200px;margin-left:auto;margin-right:auto;">
+                <f:facet name="header">
+                    <h:outputLabel id="form_lbl" value=""/>
+                </f:facet>
+                <h:outputLabel for="email_i" value="Email : "/>
+                <h:inputText id="email_i" value="${auth_contr.email}" required="true"/>
+                <h:outputLabel for="password_i" value="Password : "/>
+                <h:inputSecret id="password_i" value="${auth_contr.password}" required="true"/>
+                <f:facet name="footer">
+                    <p:commandButton id="submit_btn" action="#{auth_contr.login}" ajax="false" style="clear:left;"
+                                         value="Login"/>
+                        <p:messages id="loginError_msg" />
+                        <p:outputLabel id="sessionExpired_lbl" value="" rendered="" style="clear:left;"/>
+                </f:facet>
+            </p:panelGrid>
+
+
+        </h:form>
+    </body>
+</html>
